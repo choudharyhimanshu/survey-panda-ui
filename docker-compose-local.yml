@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  ui:
+    image: node:latest
+    working_dir: "/usr/src/app"
+    command: /bin/bash -c "npm install && npm start"
+    environment:
+      NODE_ENV: "development"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/usr/src/app"
