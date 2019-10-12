@@ -3,8 +3,6 @@
 
 FROM node:latest as builder
 
-ENV NODE_ENV "production"
-
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
