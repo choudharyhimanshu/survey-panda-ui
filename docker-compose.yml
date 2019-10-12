@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+
+  react-whiteapp:
+    container_name: react-whiteapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development

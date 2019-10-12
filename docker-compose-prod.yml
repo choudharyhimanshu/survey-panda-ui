@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  react-whiteapp:
+    container_name: react-whiteapp-prod
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+    environment:
+      - PORT=80
+    ports:
+      - '80:80'
