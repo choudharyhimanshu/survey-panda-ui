@@ -7,6 +7,7 @@ import {toast} from 'react-toastify';
 import {IGlobalContext, withGlobalContext} from '../../shared/contexts/global.context';
 import {UserInfo} from '../../shared/models/UserInfo';
 import authService from '../../shared/services/auth.service';
+import surveyApiService from '../../shared/services/survey-api.service';
 
 export interface ILoginProps {
     onLogin: () => void;
@@ -28,13 +29,20 @@ class Login extends React.Component<ILoginProps, ILoginState> {
             isAuthenticating: false,
             isAuthenticated: false,
             userInfo: {
-                id: '',
-                name: ''
+                username: ''
             }
         };
 
         this.handleLogin = this.handleLogin.bind(this);
         this.handleUserInfoInputChange = this.handleUserInfoInputChange.bind(this);
+    }
+
+    private healthcheckApi() {
+        surveyApiService.checkHealth().then(response => {
+            console.log(response);
+        }).catch(error => {
+            toast.error('API server is not responding.');
+        });
     }
 
     handleLogin(): void {
@@ -65,6 +73,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
                 isAuthenticated: true
             });
         }
+        this.healthcheckApi();
     }
 
     render() {
@@ -85,13 +94,11 @@ class Login extends React.Component<ILoginProps, ILoginState> {
                     </Header>
                     <Form size='large'>
                         <Segment stacked>
-                            <Form.Input type='text' fluid icon='user' iconPosition='left' placeholder='Full name'
-                                name='name' value={userInfo.name} onChange={this.handleUserInfoInputChange}/>
-                            <Form.Input type='email' fluid icon='mail' iconPosition='left' placeholder='E-mail address'
-                                name='id' value={userInfo.id} onChange={this.handleUserInfoInputChange}/>
+                            <Form.Input type='text' fluid icon='user' iconPosition='left' placeholder='Username'
+                                name='username' value={userInfo.username} onChange={this.handleUserInfoInputChange}/>
                             <Form.Input type='password' fluid icon='lock' iconPosition='left' placeholder='Password' />
 
-                            <Button color='teal' fluid size='large' disabled={isAuthenticating || !userInfo.id || !userInfo.name}
+                            <Button color='teal' fluid size='large' disabled={isAuthenticating || !userInfo.username}
                                 loading={isAuthenticating} onClick={this.handleLogin}>
                                 Login
                             </Button>
