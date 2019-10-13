@@ -5,7 +5,6 @@ import {toast} from 'react-toastify';
 
 import Home from './routes/home/Home';
 import Login from './routes/login/Login';
-import Example from './routes/example/Example';
 import Navbar from './shared/components/Navbar';
 import ProtectedRoute from './shared/components/ProtectedRoute';
 
@@ -17,7 +16,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'semantic-ui-css/semantic.min.css';
 import './shared/css/Helper.css';
 import './App.css';
-
 
 interface IAppState {
     isAuthorizing: boolean;
@@ -49,7 +47,6 @@ class App extends React.Component<{}, IAppState> {
                     };
                 });
             }).catch(error => {
-                toast.error(error.toString());
                 this.setState({
                     isAuthorizing: false
                 });
@@ -83,7 +80,6 @@ class App extends React.Component<{}, IAppState> {
                         <Switch>
                             <ProtectedRoute exact path='/' component={Home} />
                             <Route exact path='/login' render={(props) => <Login {...props} onLogin={this.authorize}/>} />
-                            <ProtectedRoute exact path='/example' component={Example} />
 
                             <Redirect to='/'/>
                         </Switch>

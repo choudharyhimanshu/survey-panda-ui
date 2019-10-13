@@ -36,13 +36,12 @@ class Navbar extends React.Component<INavbarProps, {}> {
         return (
             <Menu fixed='top'>
                 <Container fluid>
-                    <Menu.Item className='item'><img src={logo}/><strong>FOOBAR</strong></Menu.Item>
+                    <Menu.Item className='item'><img src={logo} alt=''/><strong>SURVEY PANDA</strong></Menu.Item>
                     { globalContext.userInfo && <Link className='item' to='/'>Home</Link> }
-                    { globalContext.userInfo && <Link className='item' to='/example'>Example</Link> }
                     { globalContext.userInfo &&
                         <Menu.Item position='right'>
-                            <Icon name='user secret' className='mr-1'/> {globalContext.userInfo.name}
-                            <Icon name='sign-out' className='ml-2'/><a className='pointer-cursor' onClick={this.handleLogout}>Logout</a>
+                            <Icon name='user secret' className='mr-1'/> {globalContext.userInfo.username}
+                            <Icon name='sign-out' className='ml-2'/><a href="#" className='pointer-cursor' onClick={this.handleLogout}>Logout</a>
                         </Menu.Item>
                     }
                 </Container>

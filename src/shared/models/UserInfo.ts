@@ -1,6 +1,5 @@
 
 export class UserInfo {
-    name!: string;
-    id!: string;
+    username!: string;
     [key: string]: string;
 }
