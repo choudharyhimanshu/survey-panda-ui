@@ -41,7 +41,7 @@ class Navbar extends React.Component<INavbarProps, {}> {
                     { globalContext.userInfo &&
                         <Menu.Item position='right'>
                             <Icon name='user secret' className='mr-1'/> {globalContext.userInfo.username}
-                            <Icon name='sign-out' className='ml-2'/><a href="#" className='pointer-cursor' onClick={this.handleLogout}>Logout</a>
+                            <Icon name='sign-out' className='ml-2'/><a href='#' className='pointer-cursor' onClick={this.handleLogout}>Logout</a>
                         </Menu.Item>
                     }
                 </Container>

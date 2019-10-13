@@ -24,7 +24,7 @@ class SurveyCard extends React.Component<ISurveyCardProps> {
                     <Card.Header className='pb-1'>{survey.title}</Card.Header>
                     <Card.Meta>
                         <span className='date'>
-                            Created on {Moment(survey.createdOn).format('d MMM YY')} by {survey.createdBy}
+                            Created on {Moment(survey.createdOn).format('DD MMM YYYY')} by <strong>{survey.createdBy}</strong>
                         </span>
                     </Card.Meta>
                     <Card.Description className='pt-1 pb-1'>

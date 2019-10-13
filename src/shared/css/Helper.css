@@ -6,6 +6,14 @@
 
 .pointer-cursor { cursor: pointer; }
 
+.no-border { border: none !important; }
+.no-border-top { border-top: none !important; }
+.no-border-right { border-right: none !important; }
+.no-border-bottom { border-bottom: none !important; }
+.no-border-left { border-left: none !important; }
+
+.no-border-radius { border-radius: 0 !important; }
+
 .m-0 { margin: 0 !important; }
 .m-1 { margin: .5em !important; }
 .m-2 { margin: 1em !important; }

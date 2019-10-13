@@ -64,11 +64,11 @@ class SurveysPane extends React.Component<ISurveysPaneProps, ISurveysPaneState> 
 
         return(
             <Grid>
-                <Grid.Row columns={2}>
-                    <Grid.Column>
-                        <Input size='small' icon='search' placeholder='Search...' />
+                <Grid.Row>
+                    <Grid.Column width={6}>
+                        <Input fluid size='small' icon='search' placeholder='Search...' />
                     </Grid.Column>
-                    <Grid.Column textAlign='right'>
+                    <Grid.Column width={10} textAlign='right'>
                         <Button primary size='small' href='#/create'><Icon className='mr-1' name='add'/>Create New</Button>
                     </Grid.Column>
                 </Grid.Row>
@@ -78,7 +78,7 @@ class SurveysPane extends React.Component<ISurveysPaneProps, ISurveysPaneState> 
                         :   surveys
                             ?   surveys.length > 0
                                 ?   surveys.map(survey =>
-                                        <Grid.Column key={survey.id} width={4}><SurveyCard survey={survey}/></Grid.Column>
+                                        <Grid.Column key={survey.id} width={4} className='pb-3'><SurveyCard survey={survey}/></Grid.Column>
                                     )
                                 :   <Grid.Column>
                                         <Header as='h4' className='pt-3 pb-3' textAlign='center'>

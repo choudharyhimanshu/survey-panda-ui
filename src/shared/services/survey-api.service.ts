@@ -20,6 +20,16 @@ class SurveyApiService {
         }
     }
 
+    static sanitizeSurveyForCreation(survey: Survey): Survey {
+        const newSurvey = {...survey};
+        newSurvey.questions = [...survey.questions];
+
+        delete newSurvey['id'];
+        newSurvey.questions.forEach(question => delete question['id']);
+
+        return newSurvey;
+    }
+
     async checkHealth(): Promise<string> {
         const url = new URL(`${this.basePath}/health`);
 
@@ -38,6 +48,24 @@ class SurveyApiService {
 
         const response = await fetch(url.toString(), {
             method: 'GET'
+        });
+
+        return (response && response.ok) ? response.json() : SurveyApiService.handleErrorResponse(response);
+    }
+
+    async createSurvey(survey: Survey): Promise<Survey> {
+        const url = new URL(`${this.basePath}/surveys`);
+
+        const headers = {
+            'Content-type': 'application/json'
+        };
+
+        const sanitizedSurvey = SurveyApiService.sanitizeSurveyForCreation(survey);
+
+        const response = await fetch(url.toString(), {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(sanitizedSurvey)
         });
 
         return (response && response.ok) ? response.json() : SurveyApiService.handleErrorResponse(response);
