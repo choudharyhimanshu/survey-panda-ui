@@ -38,9 +38,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
     }
 
     private healthcheckApi() {
-        surveyApiService.checkHealth().then(response => {
-            console.log(response);
-        }).catch(error => {
+        surveyApiService.checkHealth().catch(error => {
             toast.error('API server is not responding.');
         });
     }

@@ -4,5 +4,5 @@ const deployConfig = {
 };
 
 export const config = {
-    apiUrl: deployConfig.apiUrl || 'http://localhost:8080'
+    apiUrl: deployConfig.apiUrl || 'https://survey-panda-api.herokuapp.com'
 };

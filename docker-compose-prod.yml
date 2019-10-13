@@ -8,6 +8,6 @@ services:
     environment:
       PORT: "9090"
       NODE_ENV: "production"
-      API_URL: "https://survey-panda-api.herokuapp.com/"
+      API_URL: "https://survey-panda-api.herokuapp.com"
     ports:
       - "9090:9090"
