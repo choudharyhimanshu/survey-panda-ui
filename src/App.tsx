@@ -7,6 +7,8 @@ import Home from './routes/home/Home';
 import Login from './routes/login/Login';
 import Navbar from './shared/components/Navbar';
 import ProtectedRoute from './shared/components/ProtectedRoute';
+import CreateSurvey from './routes/create/CreateSurvey';
+import ViewSurvey from './routes/view/ViewSurvey';
 
 import {TOAST_CONFIG} from './constants';
 import {GlobalContext, IGlobalContext} from './shared/contexts/global.context';
@@ -79,6 +81,8 @@ class App extends React.Component<{}, IAppState> {
 
                         <Switch>
                             <ProtectedRoute exact path='/' component={Home} />
+                            <ProtectedRoute exact path='/create' component={CreateSurvey} />
+                            <ProtectedRoute exact path='/view/:id' component={ViewSurvey} />
                             <Route exact path='/login' render={(props) => <Login {...props} onLogin={this.authorize}/>} />
 
                             <Redirect to='/'/>

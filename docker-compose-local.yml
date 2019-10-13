@@ -7,7 +7,7 @@ services:
     command: /bin/bash -c "npm install && npm start"
     environment:
       NODE_ENV: "development"
-      API_URL: "https://survey-panda-api.herokuapp.com/"
+      API_URL: "https://survey-panda-api.herokuapp.com"
     ports:
       - "3000:3000"
     volumes:

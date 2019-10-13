@@ -1,10 +1,22 @@
 import * as React from 'react';
-import { Button, Container, Divider, Header, Placeholder } from 'semantic-ui-react';
+import {Container, Grid, Tab} from 'semantic-ui-react';
 import {IGlobalContext, withGlobalContext} from '../../shared/contexts/global.context';
+import SurveysPane from './components/SurveysPane/SurveysPane';
 
 export interface IHomeProps {
     globalContext: IGlobalContext;
 }
+
+const panes = [
+    {
+        menuItem: 'All Surveys',
+        render: () => <SurveysPane getMySurveys={false}/>
+    },
+    {
+        menuItem: 'My Surveys',
+        render: () => <SurveysPane getMySurveys={true}/>
+    }
+];
 
 class Home extends React.Component<IHomeProps, {}> {
 
@@ -16,26 +28,14 @@ class Home extends React.Component<IHomeProps, {}> {
         const {globalContext} = this.props;
 
         return(
-            <Container className='pt-5'>
-                <Header as='h1' size='huge' className='pt-2'>
-                    Welcome, { globalContext.userInfo ? globalContext.userInfo.name : 'User' }!
-                </Header>
-                <Divider className='pb-2'/>
-                <Placeholder>
-                    <Placeholder.Header image>
-                        <Placeholder.Line />
-                        <Placeholder.Line />
-                    </Placeholder.Header>
-                    <Placeholder.Paragraph>
-                        <Placeholder.Line />
-                        <Placeholder.Line />
-                        <Placeholder.Line />
-                        <Placeholder.Line />
-                    </Placeholder.Paragraph>
-                </Placeholder>
-                <Button as='a' className='mt-2'>
-                    Read More
-                </Button>
+            <Container className='pt-10'>
+                <Grid>
+                    <Grid.Row>
+                        <Grid.Column>
+                            <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
             </Container>
         );
     }
