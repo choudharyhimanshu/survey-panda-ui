@@ -205,16 +205,16 @@ class CreateSurvey extends React.Component<ICreateSurveyProps, ICreateSurveyStat
             <Container className='pt-10 pb-10'>
                 {publishedSurveyId && <Redirect to={'view/' + publishedSurveyId}/>}
                 <Grid padded>
-                    <Grid.Row>
-                        <Grid.Column>
+                    <Grid.Row centered>
+                        <Grid.Column mobile={16} tablet={16} computer={10} largeScreen={10}>
                             <Breadcrumb icon='right angle' sections={[
                                 { key: 'Home', content: 'Home', link: true },
                                 { key: 'Create', content: 'Create a survey', active: true },
                             ]} />
                         </Grid.Column>
                     </Grid.Row>
-                    <Grid.Row>
-                        <Grid.Column>
+                    <Grid.Row centered>
+                        <Grid.Column mobile={16} tablet={16} computer={10} largeScreen={10}>
                             <div>
                                 <Form.Field className='pb-3'>
                                     <div className='ui big fluid input'>
