@@ -4,7 +4,7 @@ A simple web application to create & share a public survey and to participate in
 
 ### See it LIVE! : https://survey-panda-ui.herokuapp.com
 
-API Docs: https://survey-panda-api.herokuapp.com/swagger-ui.html
+API Docs: https://survey-panda-api.herokuapp.com/swagger-ui.html (https://github.com/choudharyhimanshu/survey-panda-api)
 
 ### Technical Stack
 
