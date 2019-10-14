@@ -2,7 +2,7 @@
 
 A simple web application to create & share a public survey and to participate in other surveys(of course!).
 
-#### NOTE: Repository for backend: https://github.com/choudharyhimanshu/survey-panda-api
+#### !!Repository for backend!!: https://github.com/choudharyhimanshu/survey-panda-api
 
 ### See it LIVE! : https://survey-panda-ui.herokuapp.com
 
