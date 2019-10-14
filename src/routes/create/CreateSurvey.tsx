@@ -19,7 +19,7 @@ const DEFAULT_QUESTION: IQuestion = {
 const DEFAULT_SURVEY: Survey = {
     id: '',
     title: '',
-    tags: [],
+    tags: [...[]],
     createdOn: new Date(),
     createdBy: '',
     questions: [...[{...DEFAULT_QUESTION}]]
@@ -44,6 +44,8 @@ class CreateSurvey extends React.Component<ICreateSurveyProps, ICreateSurveyStat
 
         const userInfo = props.globalContext.userInfo;
         const survey = {...DEFAULT_SURVEY};
+        survey.tags = [...[]];
+        survey.questions = [...[]];
         survey.createdBy = userInfo ? userInfo.username : 'anonymous';
 
         this.state = {
@@ -197,7 +199,7 @@ class CreateSurvey extends React.Component<ICreateSurveyProps, ICreateSurveyStat
         const {survey, tagToAdd, errorsInForm, isPublishing, publishedSurveyId} = this.state;
 
         return(
-            <Container className='pt-10'>
+            <Container className='pt-10 pb-10'>
                 {publishedSurveyId && <Redirect to={'view/' + publishedSurveyId}/>}
                 <Grid padded>
                     <Grid.Row>

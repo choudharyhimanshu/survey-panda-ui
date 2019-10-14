@@ -30,7 +30,7 @@ class App extends React.Component<{}, IAppState> {
         super(props);
 
         this.state = {
-            isAuthorizing: false,
+            isAuthorizing: true,
             globalContext: {}
         };
 
