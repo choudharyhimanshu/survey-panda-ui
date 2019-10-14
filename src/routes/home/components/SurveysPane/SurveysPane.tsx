@@ -15,16 +15,22 @@ export interface ISurveysPaneProps {
 export interface ISurveysPaneState {
     surveys?: Survey[];
     isLoading: boolean;
+    filterQuery: string;
 }
 
 class SurveysPane extends React.Component<ISurveysPaneProps, ISurveysPaneState> {
+
+    private allSurveys: Survey[] = [];
 
     constructor(props: ISurveysPaneProps) {
         super(props);
 
         this.state = {
-            isLoading: false
+            isLoading: false,
+            filterQuery: ''
         };
+
+        this.handleFilterQueryChange = this.handleFilterQueryChange.bind(this);
     }
 
     fetchSurveys() {
@@ -37,6 +43,7 @@ class SurveysPane extends React.Component<ISurveysPaneProps, ISurveysPaneState> 
             } else {
                 const request = this.props.getMySurveys ? surveyApiService.getAllSurveys(username) : surveyApiService.getAllSurveys();
                 request.then(response => {
+                    this.allSurveys = response;
                     this.setState({
                         isLoading: false,
                         surveys: response
@@ -46,6 +53,20 @@ class SurveysPane extends React.Component<ISurveysPaneProps, ISurveysPaneState> 
                     toast.error(error.toString());
                 });
             }
+        });
+    }
+
+    handleFilterQueryChange(value: string) {
+        const filteredSurveys = this.allSurveys.filter(survey => {
+            return (!value ||
+                survey.title.toLowerCase().includes(value.toLowerCase()) ||
+                survey.createdBy.toLowerCase().includes(value.toLowerCase()) ||
+                survey.tags.join(' ').toLowerCase().includes(value.toLowerCase())
+            );
+        });
+        this.setState({
+            filterQuery: value,
+            surveys: filteredSurveys
         });
     }
 
@@ -60,13 +81,14 @@ class SurveysPane extends React.Component<ISurveysPaneProps, ISurveysPaneState> 
     }
 
     render() {
-        const {isLoading, surveys} = this.state;
+        const {isLoading, surveys, filterQuery} = this.state;
 
         return(
             <Grid>
                 <Grid.Row>
                     <Grid.Column width={6}>
-                        <Input fluid size='small' icon='search' placeholder='Search...' />
+                        <Input fluid size='small' icon='search' placeholder='Search...' value={filterQuery}
+                               onChange={(event) => this.handleFilterQueryChange(event.target.value)}/>
                     </Grid.Column>
                     <Grid.Column width={10} textAlign='right'>
                         <Button primary size='small' href='#/create'><Icon className='mr-1' name='add'/>Create New</Button>
