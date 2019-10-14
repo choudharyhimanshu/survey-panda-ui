@@ -78,7 +78,9 @@ class SurveysPane extends React.Component<ISurveysPaneProps, ISurveysPaneState> 
                         :   surveys
                             ?   surveys.length > 0
                                 ?   surveys.map(survey =>
-                                        <Grid.Column key={survey.id} width={4} className='pb-3'><SurveyCard survey={survey}/></Grid.Column>
+                                        <Grid.Column key={survey.id} mobile={16} tablet={8} computer={4} largeScreen={4} className='pb-3'>
+                                            <SurveyCard survey={survey}/>
+                                        </Grid.Column>
                                     )
                                 :   <Grid.Column>
                                         <Header as='h4' className='pt-3 pb-3' textAlign='center'>

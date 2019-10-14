@@ -197,7 +197,7 @@ class CreateSurvey extends React.Component<ICreateSurveyProps, ICreateSurveyStat
         const {survey, tagToAdd, errorsInForm, isPublishing, publishedSurveyId} = this.state;
 
         return(
-            <Container className='pt-10'>
+            <Container className='pt-10 pb-10'>
                 {publishedSurveyId && <Redirect to={'view/' + publishedSurveyId}/>}
                 <Grid padded>
                     <Grid.Row>

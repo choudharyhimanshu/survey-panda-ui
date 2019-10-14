@@ -19,7 +19,7 @@ class SurveyCard extends React.Component<ISurveyCardProps> {
         const {survey} = this.props;
 
         return(
-            <Card link href={'#/view/' + survey.id}>
+            <Card link href={'#/view/' + survey.id} fluid>
                 <Card.Content>
                     <Card.Header className='pb-1'>{survey.title}</Card.Header>
                     <Card.Meta>
@@ -30,7 +30,7 @@ class SurveyCard extends React.Component<ISurveyCardProps> {
                     <Card.Description className='pt-1 pb-1'>
                         {
                             survey.tags.map(tag =>
-                                <Label key={tag}>{tag}</Label>
+                                <Label key={tag} className='mb-1'>{tag}</Label>
                             )
                         }
                     </Card.Description>
