@@ -2,9 +2,7 @@
 
 A simple web application to create & share a public survey and to participate in other surveys(of course!).
 
-### See it LIVE!
-
-https://survey-panda-ui.herokuapp.com
+### See it LIVE! : https://survey-panda-ui.herokuapp.com
 
 API Docs: https://survey-panda-api.herokuapp.com/swagger-ui.html
 
@@ -37,7 +35,7 @@ docker-compose -file docker-compose-local.yml up --build
 
 2. Once the service is stated you can access it at `http://localhost:3000`
 
-#### Running with Node
+#### Running with Node [Recommended]
 
 1. Get Node & npm installed in your system. Recommended versions are:
 
