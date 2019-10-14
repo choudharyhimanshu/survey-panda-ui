@@ -43,10 +43,10 @@ class SurveysPane extends React.Component<ISurveysPaneProps, ISurveysPaneState> 
             } else {
                 const request = this.props.getMySurveys ? surveyApiService.getAllSurveys(username) : surveyApiService.getAllSurveys();
                 request.then(response => {
-                    this.allSurveys = response;
+                    this.allSurveys = response.reverse();
                     this.setState({
                         isLoading: false,
-                        surveys: response
+                        surveys: this.allSurveys
                     });
                 }).catch(error => {
                     this.setState({isLoading: false});

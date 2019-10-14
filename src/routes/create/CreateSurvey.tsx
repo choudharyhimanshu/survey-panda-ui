@@ -43,9 +43,12 @@ class CreateSurvey extends React.Component<ICreateSurveyProps, ICreateSurveyStat
         super(props);
 
         const userInfo = props.globalContext.userInfo;
+
         const survey = {...DEFAULT_SURVEY};
+        const question = {...DEFAULT_QUESTION};
+        question.options = [...[]];
         survey.tags = [...[]];
-        survey.questions = [...[]];
+        survey.questions = [...[question]];
         survey.createdBy = userInfo ? userInfo.username : 'anonymous';
 
         this.state = {
