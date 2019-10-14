@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {ChangeEvent} from 'react';
 import {Redirect} from 'react-router';
-import {Button, Form, Grid, Header, Message, Segment} from 'semantic-ui-react';
+import {Button, Form, Grid, Header, Icon, Message, Segment} from 'semantic-ui-react';
 import {toast} from 'react-toastify';
 
 import {IGlobalContext, withGlobalContext} from '../../shared/contexts/global.context';
@@ -88,23 +88,19 @@ class Login extends React.Component<ILoginProps, ILoginState> {
                   style={{position: 'absolute', width: '100%', height: '100%'}}>
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as='h2' color='teal' textAlign='center'>
-                        Log-in to your account
+                        Let's start with a fancy username
                     </Header>
                     <Form size='large'>
                         <Segment stacked>
                             <Form.Input type='text' fluid icon='user' iconPosition='left' placeholder='Username'
                                 name='username' value={userInfo.username} onChange={this.handleUserInfoInputChange}/>
-                            <Form.Input type='password' fluid icon='lock' iconPosition='left' placeholder='Password' />
 
                             <Button color='teal' fluid size='large' disabled={isAuthenticating || !userInfo.username}
                                 loading={isAuthenticating} onClick={this.handleLogin}>
-                                Login
+                                Continue <Icon name='arrow right'/>
                             </Button>
                         </Segment>
                     </Form>
-                    <Message>
-                        New to us? <a>Sign Up</a>
-                    </Message>
                 </Grid.Column>
             </Grid>
         );
