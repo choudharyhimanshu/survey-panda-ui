@@ -24,6 +24,8 @@ API Docs: https://survey-panda-api.herokuapp.com/swagger-ui.html
 - [CD] All the commits to `master` branch are being automatically deployed to heroku
 
     Config file path: `heroku.yml`
+    
+    Deployments: https://github.com/choudharyhimanshu/survey-panda-ui/deployments
 
 ### Setup guide
 
