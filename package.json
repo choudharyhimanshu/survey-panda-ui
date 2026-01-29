@@ -20,7 +20,7 @@
     "@types/react-dom": "16.9.1",
     "@types/react-router-dom": "^5.1.0",
     "@types/react-toastify": "^4.0.2",
-    "npm-check-updates": "^3.1.24"
+    "npm-check-updates": "^19.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
